@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internship Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1a1a2e;
+      color: #f0f0f0;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 { color: #c084fc; }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      background-color: #2d2d44;
+      border: 1px solid #444;
+      border-radius: 4px;
+      color: #f0f0f0;
+    }
+    .roles-container label {
+      display: block;
+      margin-bottom: 6px;
+      background-color: #2d2d44;
+      padding: 8px;
+      border-radius: 6px;
+    }
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 10px;
+      accent-color: #7f5af0;
+    }
+    button {
+      background-color: #7f5af0;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:disabled {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vizolane Internship Application</h1>
+
+  <form id="internshipForm">
+    <div class="form-group">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="college">College Name:</label>
+      <input type="text" id="college" name="college" required />
+    </div>
+
+    <div class="form-group">
+      <label for="graduation">Expected Graduation Year:</label>
+      <select id="graduation" name="graduation" required>
+        <option value="">Select Year</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Select Suitable Title (Max 3):</label>
+      <div class="roles-container" id="roleOptions">
+        <label><input type="checkbox" name="roles" value="IoT Developer"> IoT Developer</label>
+        <label><input type="checkbox" name="roles" value="Embedded Hardware Design"> Embedded Hardware Design</label>
+        <label><input type="checkbox" name="roles" value="Python Automation"> Python Automation</label>
+        <label><input type="checkbox" name="roles" value="UI/UX Design"> UI/UX Design</label>
+        <label><input type="checkbox" name="roles" value="AI/ML Model Training"> AI/ML Model Training</label>
+        <label><input type="checkbox" name="roles" value="Business Strategies and Outreach"> Business Strategies and Outreach</label>
+        <label><input type="checkbox" name="roles" value="Graphic Designer"> Graphic Designer</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="resumeLink">Resume Link (PDF):</label>
+      <input type="url" id="resumeLink" name="resumeLink" required />
+    </div>
+
+    <button type="submit" id="submitBtn">Submit</button>
+  </form>
+
+  <script>
+    const checkboxes = document.querySelectorAll('input[name="roles"]');
+    const maxRoles = 3;
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const selected = [...checkboxes].filter(c => c.checked);
+        checkboxes.forEach(c => {
+          c.disabled = selected.length >= maxRoles && !c.checked;
+        });
+      });
+    });
+
+    document.getElementById('internshipForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const college = document.getElementById('college').value.trim();
+      const gradYear = document.getElementById('graduation').value;
+      const resumeLink = document.getElementById('resumeLink').value.trim();
+      const roles = [...document.querySelectorAll('input[name="roles"]:checked')]
+        .map(cb => cb.value).join(', ');
+
+      if (!name || !email || !college || !gradYear || !resumeLink || !roles) {
+        alert("Please fill in all fields and select at least one role.");
+        return;
+      }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
+
+      const baseURL = "https://docs.google.com/forms/d/e/1FAIpQLScXIPWKKvRtv65BQwoOIswFoYoNLMH_Kondh4pjWaNztAAFQw/formResponse";
+
+      const formURL = `${baseURL}?entry.1577314199=${encodeURIComponent(name)}&entry.31773550=${encodeURIComponent(email)}&entry.937626051=${encodeURIComponent(college)}&entry.1968060573=${encodeURIComponent(gradYear)}&entry.520093246=${encodeURIComponent(roles)}&entry.515771279=${encodeURIComponent(resumeLink)}`;
+
+      // Fire GET request (Google Forms accepts GETs too)
+      fetch(formURL, { method: "GET", mode: "no-cors" })
+        .then(() => {
+          alert("Form submitted successfully!");
+          btn.textContent = "Submitted!";
+          this.reset();
+          checkboxes.forEach(cb => cb.disabled = false); // re-enable all checkboxes
+        })
+        .catch((err) => {
+          console.error("Submission failed", err);
+          alert("Submission failed. Please try again.");
+          btn.disabled = false;
+          btn.textContent = "Submit";
+        });
+    });
+  </script>
+</body>
+</html>
