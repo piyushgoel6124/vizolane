@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Vizolane</title>
+  <meta name="description" content="Meet the team behind Vizolane — your ultimate platform for visual innovation and creative tech solutions." />
+  <meta property="og:title" content="About Us - vizolane">
+  <meta property="og:description" content="Meet the team behind Vizolane — your ultimate platform for visual innovation and creative tech solutions." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/piyushgoel6124/vizolane/main/assets/preview.png"  />  
+  <meta property="og:url" content="https://vizolane.com/aboutus">   
+  <meta property="og:type" content="website">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0e0e17;    
+      --bg-card: rgba(26, 27, 46, 0.75);
+      --glass: rgba(255, 255, 255, 0.05);
+      --purple: #a463f2;
+      --gradient: linear-gradient(90deg, #5185ea, #3c72d6, #2d62c1);
+      --text-light: #f0f0ff;
+      --text-muted: #d0d0e0;
+      --border: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--text-light);
+      background-color: var(--bg-dark);
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #00d1ff;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 80vw;
+      margin: auto;
+    }
+
+    .team-section {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      margin-bottom: 2rem;
+    }
+
+    .team-member {
+      flex: 0 0 45%;
+      margin-bottom: 2rem;
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      margin-right: 0px;
+      margin-left: 0px;
+      align-items: center;
+    }
+
+    .team-member img {
+      width: 200px;
+      height: 200px;
+      border-radius: 20%;
+      object-fit: cover;
+      margin-right: 2rem;
+    }
+
+    .team-member-details {
+      flex: 1;
+    }
+
+    .team-member h2 {
+      font-size: 2rem;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .team-member p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .team-member a {
+      display: inline-block;
+      background: var(--gradient);
+      color: var(--text-light);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+
+
+    .employees-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .employee {
+      flex: 0 0 20%;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .employee img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+
+    .employee h3 {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 0.25rem;
+    }
+
+    .employee p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .team-member {
+        flex: 0 0 100%;
+        margin-bottom: 2rem;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .team-member img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .employee {
+        flex: 0 0 45%;
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .employee {
+        flex: 0 0 100%;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>About Us</h1>
+
+  <div class="container">
+    <section class="team-section">
+      <div class="team-member">
+        <img src="../assets/pg.png"  alt="Piyush Goel" />
+        <div class="team-member-details">
+            <h2>Piyush Goel</h2>
+            <p>Co-Founder & Director</p>
+            <p>Contact: +91 93898 60044</p>
+            <p>Email: piyush.goel@vizolane.com</p>
+            <p>Email: admin@vizolane.com</p>
+          <a href="#"  target="_blank">Portfolio</a>
+        </div>
+      </div>
+      <div class="team-member">
+        <img src="../assets/nt.png" alt="nipun tyagi"/>
+        <div class="team-member-details">
+            <h2>Nipun Tyagi</h2>
+            <p>Co-Founder & Director</p>
+            <p>Contact: +91 85320 70669</p>
+            <p>Email: nipun.tyagi@vizolane.com</p>
+          <a href="#"  target="_blank">Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="employees-section">
+      <a href="https://portfolio.employee1.com"  target="_blank" class="employee">
+        <img src="https://placehold.co/100x100"  alt="Employee 1" />
+        <h3>Employee 1</h3>
+        <p>Software Engineer</p>
+      </a>
+      <a href="https://portfolio.employee2.com"  target="_blank" class="employee">
+        <img src="https://placehold.co/100x100"  alt="Employee 2" />
+        <h3>Employee 2</h3>
+        <p>Data Scientist</p>
+      </a>
+      <a href="https://portfolio.employee3.com"  target="_blank" class="employee">
+        <img src="https://placehold.co/100x100"  alt="Employee 3" />
+        <h3>Employee 3</h3>
+        <p>UI/UX Designer</p>
+      </a>
+      <a href="https://portfolio.employee4.com"  target="_blank" class="employee">
+        <img src="https://placehold.co/100x100"  alt="Employee 4" />
+        <h3>Employee 4</h3>
+        <p>Marketing Specialist</p>
+      </a>
+    </section> -->
+  </div>
+</body>
+</html>
