@@ -58,25 +58,36 @@
       padding: 0 2rem;
     }
 
-    header {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 10;
-    }
+    
+header {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
 
-    header button {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
+.nav-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
 
-    header button:hover {
-      color: var(--text-light);
-    }
+.nav-btn {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border-color: var(--accent);
+  background-color: transparent;
+}
+
+.nav-btn:hover {
+  color: var(--text-light);
+  border-color: var(--accent);
+  background-color: #00d1ff;
+}
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 6rem;
@@ -192,14 +203,9 @@
 <body>
   <!-- Header -->
   <header>
-    <div style="display: flex; gap: 1.5rem;">
-      <a href="internship">
-        <button>Internship</button>
-      </a>
-      
-      <a href="aboutus">
-        <button>About Us</button>
-      </a>
+    <div class="nav-buttons">
+      <a href="internship" class="nav-btn">Internship</a>
+      <a href="aboutus" class="nav-btn">About Us</a>
     </div>
   </header>
 
