@@ -1,311 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vizolane</title>
-<meta name="description" content="Explore Vizolane — your ultimate platform for visual innovation and creative tech solutions.">
-<meta property="og:title" content="vizolane">
-<meta property="og:description" content="Explore Vizolane — your ultimate platform for visual innovation and creative tech solutions.">
-<meta property="og:image" content="https://raw.githubusercontent.com/piyushgoel6124/vizolane/main/assets/preview.png">
-<meta property="og:url" content="https://vizolane.com">
-<meta property="og:type" content="website">
-<!-- <link rel="stylesheet" href="style.css"> -->
-<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #0e0e17; 
-      --bg-card: rgba(26, 27, 46, 0.75);
-      --glass: rgba(255, 255, 255, 0.05);
-      --purple: #a463f2;
-      --gradient: linear-gradient(90deg, #5185ea, #3c72d6, #2d62c1);
-      --text-light: #f0f0ff;
-      --text-muted: #d0d0e0;
-      --border: rgba(255, 255, 255, 0.15);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vizolane | Smart City Infrastructure</title>
+    <meta name="description"
+        content="Vizolane creates AI-powered, real-time systems for smarter cities. Traffic, tolling, and transportation solutions.">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    .image-card ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-  text-align: left;
-}
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vizolane">
+    <meta property="og:description" content="Building the future of urban infrastructure with AI.">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/piyushgoel6124/vizolane/main/assets/preview.png">
+    <meta property="og:url" content="https://vizolane.com">
+    <meta property="og:type" content="website">
 
-/* List item styling */
-.image-card ul li {
-  margin-bottom: 0.6rem;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--text-light);
-      overflow-x: hidden;
-      background-color: var(--bg-dark);
-    }
-
-    .hero {
-      min-height: 100vh;
-      background-image: url('assets/herobg.png'); /* Use your local image */
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: scroll; /* This makes the background image scroll with the content */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 2rem;
-    }
-
-    
-header {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
-}
-
-.nav-buttons {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-btn {
-  text-decoration: none;
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  border-color: var(--accent);
-  background-color: transparent;
-}
-
-.nav-btn:hover {
-  color: var(--text-light);
-  border-color: var(--accent);
-  background-color: #00d1ff;
-}
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 6rem;
-      font-weight: bold;
-      width: 100vw;
-      color: #00d1ff; /* Bright blue color from the provided image */ 
-      letter-spacing: 6px;
-      line-height: 1;
-    }
-
-    .hero p {
-      font-size: 1.05rem; /* Reduced by 30% from 1.5rem */
-      color: var(--text-muted);
-      margin-top: 1rem;
-      max-width: 600px;
-    }
-
-    .comparison {
-      padding: 1rem 1rem;
-      text-align: center;
-      margin-bottom: 0;
-      background-color: var(--bg-dark); /* Simple dark background for comparison section */
-    }
-
-    .comparison h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .comparison .images {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .comparison .images {
-        flex-direction: row;
-      }
-    }
-
-    .comparison .image-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem;
-      flex: 1;
-    }
-
-    .comparison img {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .feedback {
-      padding: 1rem 1rem;
-      background-color: var(--bg-dark); /* Simple dark background for feedback section */
-    }
-
-    .feedback .card {
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 2rem;
-      max-width: 100vw;
-    }
-
-    .feedback h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .feedback label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    .feedback input,
-    .feedback textarea,
-    .feedback select {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      background: var(--glass);
-      color: var(--text-light);
-      font-size: 1rem;
-    }
-
-    .feedback button {
-      background: var(--gradient);
-      color: var(--text-light);
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.3s ease;
-    }
-
-    .feedback button:hover {
-      transform: scale(1.05);
-    }
-  </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-  <!-- Header -->
-  <header>
-    <div class="nav-buttons">
-<!--       <a href="internship" class="nav-btn">Internship</a> -->
-      <a href="aboutus" class="nav-btn">About Us</a>
-    </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1 style="width: 100vw; margin: 0; padding: 0.1em 0; font-size: 18vw;  color: #00d1ff; text-align: center;">
-    VIZOLANE
-    </h1>
-    
-    <p>
-      Vizolane Technologies is where innovation meets infrastructure. We're building AI-powered, real-time systems for smarter cities—starting with traffic, tolling, and transportation. From intelligent signal management to seamless tolling, our solutions are designed to reduce chaos, boost efficiency, and pave the way for a more connected tomorrow.
-    </p>
-  </section>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo-container">
+                    <img src="assets/wicon.png" alt="Vizolane Icon" class="logo-img">
+                    <div class="logo-text-group">
+                        <span class="logo-main">VIZOLANE</span>
+                        <span class="logo-sub">TECHNOLOGIES LLP</span>
+                    </div>
+                </a>
+                <div class="menu-toggle">☰</div>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="aboutus" class="nav-link">About Us</a></li>
+                    <!-- <li><a href="internship" class="nav-link">Internship</a></li> -->
+                    <li><a href="#contact" class="btn btn-primary">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Comparison Page -->
-  <section class="comparison">
-    <div class="images">
-      <div class="image-card">
-        <h3>Current State</h3>
-        <img src="assets/jammed.png" alt="Current State" />
-        <ul>
-          <li>⏱️ Long commute times due to fixed signal cycles</li>
-          <li>⛽ High fuel consumption from constant idling</li>
-          <li>🚨 No priority for emergency vehicles</li>
-          <li>👷 Manual control, more human errors</li>
-          <li>🔊 Noise pollution from honking & chaotic stops</li>
-        </ul>
-      </div>
-      <div class="image-card">
-        <h3>Future Vision</h3>
-        <img src="assets/sorted.png" alt="Future Vision" />
-        <ul >
-          <li>⏳ <strong>33% faster commutes</strong> with AI-based traffic flow</li>
-          <li>💧 <strong>20% less fuel use</strong> via smoother routing</li>
-          <li>🟢 <strong>Green corridors</strong> for ambulances/fire trucks</li>
-          <li>🤖 <strong>Automation</strong> means fewer errors, less manpower</li>
-          <li>🔕 <strong>Reduced urban noise</strong> from optimized traffic flow</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-glow"></div>
+        <div class="container hero-content">
+            <h1 class="gradient-text reveal">The Future of<br>Urban Mobility</h1>
+            <p class="reveal">AI-powered infrastructure for smarter, safer, and faster cities. From intelligent signals
+                to seamless tolling.</p>
+            <a href="#vision" class="btn btn-primary reveal">Explore Vision</a>
+        </div>
 
-  <!-- Feedback/Suggestion Form -->
-  <section class="feedback">
-    <div class="card">
-      <h2>Issue/Suggestion</h2>
-<form id="feedback">
-  <label for="name">Your Name</label>
-  <input type="text" id="name" required />
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll</span>
+        </div>
+    </section>
 
-  <label for="contact">Contact Number</label>
-  <input type="tel" id="contact" required />
+    <!-- Comparison Section -->
+    <section id="vision">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Transforming Chaos into <span class="gradient-text">Order</span></h2>
+                <p>See the difference intelligent infrastructure makes.</p>
+            </div>
 
-  <label for="email">Email Address</label>
-  <input type="email" id="email" required />
+            <div class="comparison-grid">
+                <!-- Current State -->
+                <div class="card reveal">
+                    <img src="assets/jammed.png" alt="Current Traffic Chaos" class="card-image">
+                    <h3>Current State</h3>
+                    <ul class="card-list">
+                        <li>⏱️ Long wait times & fixed cycles</li>
+                        <li>⛽ High fuel wastage & pollution</li>
+                        <li>🚨 Delayed emergency response</li>
+                        <li>🔊 Noise pollution & driver stress</li>
+                    </ul>
+                </div>
 
-  <label for="details">Details</label>
-  <textarea id="details" rows="4" required></textarea>
+                <!-- Future Vision -->
+                <div class="card reveal">
+                    <img src="assets/sorted.png" alt="Smart Traffic Solution" class="card-image">
+                    <h3>Future Vision</h3>
+                    <ul class="card-list">
+                        <li>⏳ <strong>33% Faster</strong> commutes via AI</li>
+                        <li>💧 <strong>20% Fuel saved</strong> with smart routing</li>
+                        <li>🟢 Green corridors for emergency vehicles</li>
+                        <li>🤖 Zero-error automated management</li>
+                    </ul>
+                </div>
+            </div>
 
-  <button type="submit">Submit</button>
-</form>
+            <!-- Stats Counter -->
+            <div class="stats reveal">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="33" data-suffix="%">0</span>
+                    <span class="stat-label">Faster Commutes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="20" data-suffix="%">0</span>
+                    <span class="stat-label">Fuel Saved</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100" data-suffix="%">0</span>
+                    <span class="stat-label">Automated</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Feedback / Contact Section -->
+    <section id="contact" class="feedback-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Get In <span class="gradient-text">Touch</span></h2>
+                <p>Have an issue or a suggestion? We'd love to hear from you.</p>
+            </div>
 
+            <div class="form-container reveal">
+                <form id="feedback-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                    </div>
 
-    </div>
-  </section>
-  <script>
-    document.getElementById('feedback').addEventListener('submit', function (e) {
-      e.preventDefault();
-  
-      const name = encodeURIComponent(document.getElementById('name').value);
-      const contact = encodeURIComponent(document.getElementById('contact').value);
-      const email = encodeURIComponent(document.getElementById('email').value);
-      const details = encodeURIComponent(document.getElementById('details').value);
-  
-      // 👇 Use the actual form submission endpoint, NOT the viewform URL
-      const formURL = `https://docs.google.com/forms/d/e/1FAIpQLSeBJwzbNJFJ3FoampKT3ulglyNU0fKrGSHKbvJqEoZLZzXAvQ/formResponse?entry.1134360881=${name}&entry.1808078490=${contact}&entry.2020861878=${email}&entry.334732365=${details}`;
-  
-      fetch(formURL, {
-        method: "GET", // or "POST", both are accepted by Google
-        mode: "no-cors"
-      })
-      .then(() => {
-        alert("✅ Feedback submitted successfully!");
-        document.getElementById('feedback').reset();
-      })
-      .catch((err) => {
-        console.error("Submission error:", err);
-        alert("❌ Submission failed. Please try again.");
-      });
-    });
-  </script>
-  
+                    <div class="form-group">
+                        <label for="contact">Contact Number</label>
+                        <input type="tel" id="contact" class="form-control" placeholder="+12 345 67890" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Message / Details</label>
+                        <textarea id="details" class="form-control" placeholder="Tell us more..." required></textarea>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="margin-bottom: 20px;">
+                <img src="assets/icon.png" alt="Vizolane Icon" style="height: 50px; margin: 0 auto 15px;">
+                <p style="opacity: 0.7; font-size: 0.9rem;">Est. 16 June 2025</p>
+            </div>
+            <p>&copy; 2025 Vizolane Technologies. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link" title="Twitter/X">𝕏</a>
+                <a href="#" class="social-link" title="LinkedIn">in</a>
+                <a href="#" class="social-link" title="Instagram">ig</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Application | Vizolane</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Internship - Vizolane">
+    <meta property="og:description" content="Apply for an internship at Vizolane.">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/piyushgoel6124/vizolane/main/assets/preview.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+
+    <style>
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .checkbox-item:hover {
+            color: var(--primary);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../" class="logo-container">
+                    <img src="../assets/icon.png" alt="Vizolane Icon" class="logo-img">
+                    <div class="logo-text-group">
+                        <span class="logo-main">VIZOLANE</span>
+                        <span class="logo-sub">TECHNOLOGIES LLP</span>
+                    </div>
+                </a>
+                <div class="menu-toggle">☰</div>
+                <ul class="nav-links">
+                    <li><a href="../" class="nav-link">Home</a></li>
+                    <li><a href="../aboutus" class="nav-link">About Us</a></li>
+                    <!-- <li><a href="#" class="nav-link active">Internship</a></li> -->
+                    <li><a href="../#contact" class="btn btn-primary">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="hero" style="min-height: 100vh; height: auto; padding-top: 150px; padding-bottom: 100px;">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="section-title reveal">
+                <h1>Join The <span class="gradient-text">Future</span></h1>
+                <p>Apply for an internship and help build smarter cities.</p>
+            </div>
+
+            <div class="form-container reveal" style="max-width: 800px;">
+                <form id="internshipForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="college">College Name</label>
+                        <input type="text" id="college" name="college" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graduation">Expected Graduation Year</label>
+                        <input type="number" id="graduation" name="graduation" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Roles (Max 2)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item"><input type="checkbox" name="roles" value="IoT Developer"> IoT
+                                Developer</label>
+                            <label class="checkbox-item"><input type="checkbox" name="roles"
+                                    value="Embedded Hardware Design"> Embedded Hardware Design</label>
+                            <label class="checkbox-item"><input type="checkbox" name="roles" value="Python Automation">
+                                Python Automation</label>
+                            <label class="checkbox-item"><input type="checkbox" name="roles" value="UI/UX Design"> UI/UX
+                                Design</label>
+                            <label class="checkbox-item"><input type="checkbox" name="roles"
+                                    value="AI/ML Model Training"> AI/ML Model Training</label>
+                            <label class="checkbox-item"><input type="checkbox" name="roles"
+                                    value="Business Strategies and Outreach"> Business Strategies and Outreach</label>
+                            <label class="checkbox-item"><input type="checkbox" name="roles" value="Graphic Designer">
+                                Graphic Designer</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resumeLink">Resume Link (PDF)</label>
+                        <input type="url" id="resumeLink" name="resumeLink" class="form-control"
+                            placeholder="https://drive.google.com/..." required>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="submit" id="submitBtn" class="btn btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="margin-bottom: 20px;">
+                <img src="../assets/icon.png" alt="Vizolane Icon" style="height: 50px; margin: 0 auto 15px;">
+                <p style="opacity: 0.7; font-size: 0.9rem;">Est. 16 June 2025</p>
+            </div>
+            <p>&copy; 2025 Vizolane Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Specific logic for Internship Form
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('input[name="roles"]');
+            const maxRoles = 2;
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const selected = [...checkboxes].filter(c => c.checked);
+                    checkboxes.forEach(c => {
+                        if (!c.checked) {
+                            c.disabled = selected.length >= maxRoles;
+                        }
+                    });
+                });
+            });
+
+            document.getElementById('internshipForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const college = document.getElementById('college').value.trim();
+                const gradYear = document.getElementById('graduation').value;
+                const resumeLink = document.getElementById('resumeLink').value.trim();
+                const roles = [...document.querySelectorAll('input[name="roles"]:checked')]
+                    .map(cb => cb.value).join(', ');
+
+                if (!name || !email || !college || !gradYear || !resumeLink || !roles) {
+                    alert("Please fill in all fields and select at least one role.");
+                    return;
+                }
+
+                const btn = document.getElementById('submitBtn');
+                const originalText = btn.innerText;
+                btn.disabled = true;
+                btn.innerText = "Submitting...";
+
+                const baseURL = "https://docs.google.com/forms/d/e/1FAIpQLScXIPWKKvRtv65BQwoOIswFoYoNLMH_Kondh4pjWaNztAAFQw/formResponse";
+                const formURL = `${baseURL}?entry.1577314199=${encodeURIComponent(name)}&entry.31773550=${encodeURIComponent(email)}&entry.937626051=${encodeURIComponent(college)}&entry.1968060573=${encodeURIComponent(gradYear)}&entry.520093246=${encodeURIComponent(roles)}&entry.515771279=${encodeURIComponent(resumeLink)}`;
+
+                fetch(formURL, { method: "GET", mode: "no-cors" })
+                    .then(() => {
+                        alert("✅ Application submitted successfully!");
+                        btn.innerText = "Submitted!";
+                        this.reset();
+                        checkboxes.forEach(cb => {
+                            cb.checked = false;
+                            cb.disabled = false;
+                        });
+                        setTimeout(() => {
+                            btn.disabled = false;
+                            btn.innerText = originalText;
+                        }, 3000);
+                    })
+                    .catch((err) => {
+                        console.error("Submission failed", err);
+                        alert("❌ Submission failed. Please try again.");
+                        btn.disabled = false;
+                        btn.innerText = originalText;
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>

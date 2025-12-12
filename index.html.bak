@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vizolane</title>
+<meta name="description" content="Explore Vizolane — your ultimate platform for visual innovation and creative tech solutions.">
+<meta property="og:title" content="vizolane">
+<meta property="og:description" content="Explore Vizolane — your ultimate platform for visual innovation and creative tech solutions.">
+<meta property="og:image" content="https://raw.githubusercontent.com/piyushgoel6124/vizolane/main/assets/preview.png">
+<meta property="og:url" content="https://vizolane.com">
+<meta property="og:type" content="website">
+<!-- <link rel="stylesheet" href="style.css"> -->
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0e0e17; 
+      --bg-card: rgba(26, 27, 46, 0.75);
+      --glass: rgba(255, 255, 255, 0.05);
+      --purple: #a463f2;
+      --gradient: linear-gradient(90deg, #5185ea, #3c72d6, #2d62c1);
+      --text-light: #f0f0ff;
+      --text-muted: #d0d0e0;
+      --border: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .image-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+/* List item styling */
+.image-card ul li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--text-light);
+      overflow-x: hidden;
+      background-color: var(--bg-dark);
+    }
+
+    .hero {
+      min-height: 100vh;
+      background-image: url('assets/herobg.png'); /* Use your local image */
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: scroll; /* This makes the background image scroll with the content */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    
+header {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-btn {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border-color: var(--accent);
+  background-color: transparent;
+}
+
+.nav-btn:hover {
+  color: var(--text-light);
+  border-color: var(--accent);
+  background-color: #00d1ff;
+}
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem;
+      font-weight: bold;
+      width: 100vw;
+      color: #00d1ff; /* Bright blue color from the provided image */ 
+      letter-spacing: 6px;
+      line-height: 1;
+    }
+
+    .hero p {
+      font-size: 1.05rem; /* Reduced by 30% from 1.5rem */
+      color: var(--text-muted);
+      margin-top: 1rem;
+      max-width: 600px;
+    }
+
+    .comparison {
+      padding: 1rem 1rem;
+      text-align: center;
+      margin-bottom: 0;
+      background-color: var(--bg-dark); /* Simple dark background for comparison section */
+    }
+
+    .comparison h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .comparison .images {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .comparison .images {
+        flex-direction: row;
+      }
+    }
+
+    .comparison .image-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      flex: 1;
+    }
+
+    .comparison img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .feedback {
+      padding: 1rem 1rem;
+      background-color: var(--bg-dark); /* Simple dark background for feedback section */
+    }
+
+    .feedback .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 100vw;
+    }
+
+    .feedback h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feedback label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .feedback input,
+    .feedback textarea,
+    .feedback select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--glass);
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    .feedback button {
+      background: var(--gradient);
+      color: var(--text-light);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .feedback button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-buttons">
+<!--       <a href="internship" class="nav-btn">Internship</a> -->
+      <a href="aboutus" class="nav-btn">About Us</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 style="width: 100vw; margin: 0; padding: 0.1em 0; font-size: 18vw;  color: #00d1ff; text-align: center;">
+    VIZOLANE
+    </h1>
+    
+    <p>
+      Vizolane Technologies is where innovation meets infrastructure. We're building AI-powered, real-time systems for smarter cities—starting with traffic, tolling, and transportation. From intelligent signal management to seamless tolling, our solutions are designed to reduce chaos, boost efficiency, and pave the way for a more connected tomorrow.
+    </p>
+  </section>
+
+  <!-- Comparison Page -->
+  <section class="comparison">
+    <div class="images">
+      <div class="image-card">
+        <h3>Current State</h3>
+        <img src="assets/jammed.png" alt="Current State" />
+        <ul>
+          <li>⏱️ Long commute times due to fixed signal cycles</li>
+          <li>⛽ High fuel consumption from constant idling</li>
+          <li>🚨 No priority for emergency vehicles</li>
+          <li>👷 Manual control, more human errors</li>
+          <li>🔊 Noise pollution from honking & chaotic stops</li>
+        </ul>
+      </div>
+      <div class="image-card">
+        <h3>Future Vision</h3>
+        <img src="assets/sorted.png" alt="Future Vision" />
+        <ul >
+          <li>⏳ <strong>33% faster commutes</strong> with AI-based traffic flow</li>
+          <li>💧 <strong>20% less fuel use</strong> via smoother routing</li>
+          <li>🟢 <strong>Green corridors</strong> for ambulances/fire trucks</li>
+          <li>🤖 <strong>Automation</strong> means fewer errors, less manpower</li>
+          <li>🔕 <strong>Reduced urban noise</strong> from optimized traffic flow</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Feedback/Suggestion Form -->
+  <section class="feedback">
+    <div class="card">
+      <h2>Issue/Suggestion</h2>
+<form id="feedback">
+  <label for="name">Your Name</label>
+  <input type="text" id="name" required />
+
+  <label for="contact">Contact Number</label>
+  <input type="tel" id="contact" required />
+
+  <label for="email">Email Address</label>
+  <input type="email" id="email" required />
+
+  <label for="details">Details</label>
+  <textarea id="details" rows="4" required></textarea>
+
+  <button type="submit">Submit</button>
+</form>
+
+
+
+    </div>
+  </section>
+  <script>
+    document.getElementById('feedback').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const name = encodeURIComponent(document.getElementById('name').value);
+      const contact = encodeURIComponent(document.getElementById('contact').value);
+      const email = encodeURIComponent(document.getElementById('email').value);
+      const details = encodeURIComponent(document.getElementById('details').value);
+  
+      // 👇 Use the actual form submission endpoint, NOT the viewform URL
+      const formURL = `https://docs.google.com/forms/d/e/1FAIpQLSeBJwzbNJFJ3FoampKT3ulglyNU0fKrGSHKbvJqEoZLZzXAvQ/formResponse?entry.1134360881=${name}&entry.1808078490=${contact}&entry.2020861878=${email}&entry.334732365=${details}`;
+  
+      fetch(formURL, {
+        method: "GET", // or "POST", both are accepted by Google
+        mode: "no-cors"
+      })
+      .then(() => {
+        alert("✅ Feedback submitted successfully!");
+        document.getElementById('feedback').reset();
+      })
+      .catch((err) => {
+        console.error("Submission error:", err);
+        alert("❌ Submission failed. Please try again.");
+      });
+    });
+  </script>
+  
+</body>
+</html>
